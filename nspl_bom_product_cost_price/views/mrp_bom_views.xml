@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_bom_form_inherit_cost_price" model="ir.ui.view">
+        <field name="name">mrp.bom.form.inherit.cost.price</field>
+        <field name="model">mrp.bom</field>
+        <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="after">
+                <field name="product_cost_price" readonly="1"/>
+                <field name="total_bom_cost" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
