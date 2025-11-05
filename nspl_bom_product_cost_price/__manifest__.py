@@ -1,6 +1,6 @@
 {
     'name': 'BOM Product Cost Price',
-    'version': '18.0',
+    'version': '19.0.1',
     'summary': 'Show cost price of BoM product and total BoM cost',
     'description': """
     Display cost price of the product defined in the Bill of Materials (BoM) and the total cost of all components.
@@ -17,7 +17,7 @@
     'support': 'support@namahsoftech.com',
     'price': 19.99,
     'currency': 'USD',
-    'contributors': ['Shivani Solanki'],
+    'contributors': ['Rutik Patil'],
     'depends': ['mrp', 'product'],
     'data': [
         'views/mrp_bom_views.xml',

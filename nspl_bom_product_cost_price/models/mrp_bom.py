@@ -1,5 +1,6 @@
 from odoo import models, fields, api
 
+
 class MrpBom(models.Model):
     _inherit = "mrp.bom"
 
@@ -10,15 +11,17 @@ class MrpBom(models.Model):
     )
 
     total_bom_cost = fields.Float(
-        string="Total BoM Cost", compute="_compute_total_bom_cost", store=True
+        string="Total BoM Cost",
+        compute="_compute_total_bom_cost",
+        store=True
     )
 
-    @api.depends("bom_line_ids.product_id", "bom_line_ids.product_qty")
+    @api.depends("bom_line_ids.product_id", "bom_line_ids.product_qty", "bom_line_ids.product_id.standard_price")
     def _compute_total_bom_cost(self):
         for bom in self:
             total = 0.0
             for line in bom.bom_line_ids:
-                total += line.product_id.standard_price * line.product_qty
+                total += (line.product_id.standard_price or 0.0) * (line.product_qty or 0.0)
             bom.total_bom_cost = total
 
     def name_get(self):

@@ -6,7 +6,8 @@
         <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
             <!-- Insert after Cost field -->
-            <xpath expr="//field[@name='standard_price']" position="after">
+            <xpath expr="//field[@name='categ_id']" position="after">
+
                 <field name="default_bom_id"/>
                 <field name="default_bom_cost" readonly="1"/>
             </xpath>
